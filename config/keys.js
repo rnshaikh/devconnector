@@ -1,4 +1,4 @@
 module.exports = {
-  mongoURI : 'localhost:4046/username/password' 
-
+  mongoURI: 'mongodb://root:root123@ds163700.mlab.com:63700/devsocialnetwork' ,
+  secretorkey:'this is secret key',
 }
