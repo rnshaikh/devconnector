@@ -40,7 +40,7 @@ exports.register= function (req, res){
     .catch(err => { console.log(err)});
 };
 exports.login =  function (req,res){
-  const { errors, isValid } = validateRegisterInput(req.body);
+  const { errors, isValid } = validateLoginInput(req.body);
   if (!isValid) {
     res.status(404).json({ errors });
   }

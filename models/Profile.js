@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const ProfileSchema = new Schema({
 
   user : {
-    type:mongoose.Types.ObjectId,
+    type:Schema.Types.ObjectId,
     ref:'users'
 
   },
@@ -39,7 +39,7 @@ const ProfileSchema = new Schema({
   {
     type:String
   },
-  experince:[{
+  experience:[{
       title:{
         type:String,
         required:true
@@ -111,11 +111,11 @@ const ProfileSchema = new Schema({
     },
     twitter: {
       type: String
-    },
-    date:{
-      type:Date,
-      default:Date.now
     }
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 })
 
