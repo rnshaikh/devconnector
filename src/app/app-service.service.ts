@@ -20,7 +20,7 @@ export class AppServiceService {
       "identity": identity,
       "token":token
     }
-    return this.httpService.post("http://localhost:8080/api/notify/user/",body)
+    return this.httpService.post("https://notification-rest.herokuapp.com/api/notify/user/",body)
   }
 
   changeNotificationSettings(notification1,notification2,notification3){
@@ -31,7 +31,7 @@ export class AppServiceService {
       "notification_type3": notification3,
       "identity": localStorage.getItem("Identity")
     }
-    return this.httpService.post("http://localhost:8080/api/notify/user/settings/",body)
+    return this.httpService.post("https://notification-rest.herokuapp.com/api/notify/user/settings/",body)
 
   }
 }
