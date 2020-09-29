@@ -2,6 +2,7 @@ const express =require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const cors = require('cors');
 
 // routers 
 const users = require('./routes/api/users');
@@ -11,11 +12,12 @@ const posts = require("./routes/api/posts");
 app = express();
 
 // body praser midddleware
+app.use(cors());
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json());
 
 // mogo db connection
-const db = require('./config/keys').mongoURI;
+const db = require('./config/production').mongoURI;
 mongoose
   .connect(db)
   .then(()=>console.log("DB connected"))
@@ -23,6 +25,15 @@ mongoose
 
 app.use(passport.initialize());
 require('./config/passport')(passport);
+
+
+if(process.env.NODE_ENV=='production'){
+
+  app.use(express.static('client/build'))
+
+  app.get('*', (req,res)=>{
+      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
 
 // app routers
 app.use('/api/users',users);

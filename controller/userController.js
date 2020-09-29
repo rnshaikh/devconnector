@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const gravatar= require('gravatar');
+const gravatar= require('nodejs-gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const keys = require('../config/keys');
@@ -12,14 +12,14 @@ exports.register= function (req, res){
     if(!isValid){
       res.status(404).json({errors});
     }
-      User.findOne({email:req.body.email})
+    User.findOne({email:req.body.email})
       .then(user=>{ 
         if(user){
-          res.status(400).json({email:"Email Already Existed"});
+          res.status(400).json({"errors":["Email Already Existed"]});
         }
         else{
-            const avatar = gravatar.url(req.body.email,
-                                    {s:'200',r:'pg',d:'200'}); 
+            const avatar = gravatar.imageUrl(req.body.email,
+                                    {s:'200'}); 
             const newUser = new User({
               email:req.body.email,
               name:req.body.name,
@@ -71,7 +71,7 @@ exports.login =  function (req,res){
             });
           }
           else{
-            res.status(404).json({error:"email and password is incorrect."});
+            res.status(404).json({errors:["email and password is incorrect."]});
           }
       })
       .catch(err =>{

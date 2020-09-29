@@ -10,6 +10,12 @@ router.get('/profile',
           passport.authenticate('jwt',{session:false}),
           profile_controller.getCurrentProfile);
 
+router.get('/github/:username',
+          passport.authenticate('jwt',{session:false}),
+          profile_controller.getGithubRepos);
+
+router.delete('/profile', passport.authenticate('jwt',{session:false}),
+             profile_controller.deleteProfile)
 router.post('/createupdateprofile',
       passport.authenticate('jwt',{session:false}),
       profile_controller.createUpdateProfile);
@@ -27,6 +33,10 @@ router.post('/addexperience', passport.authenticate('jwt', { session: false }), 
 
 router.post('/addEducation', passport.authenticate('jwt', { session: false }), profile_controller.addEducation);
 
+router.post('/addEducation', passport.authenticate('jwt', { session: false }), profile_controller.addEducation);
 
+router.delete('/experience/:experience_id', passport.authenticate('jwt', { session: false }), profile_controller.deleteExperience)
+
+router.delete('/education/:education_id', passport.authenticate('jwt', { session: false }), profile_controller.deleteEducation)
 
 module.exports = router;
