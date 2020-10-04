@@ -34,10 +34,10 @@ const UpdateProfile = ({profile: {profile, loading}, createProfile,getCurrentUse
             skills: loading || ! profile.skills ? '' : profile.skills,
             handle: loading || ! profile.handle ? '' : profile.handle,
             bio: loading || ! profile.bio ? '' : profile.bio,
-            twitter: loading || ! profile.social.twitter ? '' : profile.social.twitter,
-            facebook: loading || ! profile.social.facebook ? '' : profile.social.facebook,
-            youtube: loading || ! profile.social.youtube ? '' : profile.social.youtube,
-            instagram: loading || ! profile.social.instagram ? '' : profile.social.instagram,
+            twitter: loading || ! profile.social ? '' : profile.social.twitter,
+            facebook: loading || ! profile.social ? '' : profile.social.facebook,
+            youtube: loading || ! profile.social ? '' : profile.social.youtube,
+            instagram: loading || ! profile.social ? '' : profile.social.instagram,
         });
 
     }, [loading]);
