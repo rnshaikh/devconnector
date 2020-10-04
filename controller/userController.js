@@ -2,7 +2,7 @@ const User = require('../models/User');
 const gravatar= require('nodejs-gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const keys = require('../config/keys');
+const keys = require('../config/production');
 
 const validateRegisterInput= require('../validators/register');
 const validateLoginInput = require('../validators/login');
