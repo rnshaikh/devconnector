@@ -11,6 +11,8 @@ const posts = require("./routes/api/posts");
 
 app = express();
 
+
+
 // body praser midddleware
 app.use(cors());
 app.use(bodyParser.urlencoded({extended : false}));
