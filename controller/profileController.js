@@ -1,7 +1,7 @@
 const express = require("express");
 const User = require('../models/User');
 const request = require('request');
-const config = require('../config/keys');
+const config = require('../config/production');
 const Profile = require('../models/Profile');
 const validateProfileInput = require('../validators/profile_validator'); '../validators/profile_validator'
 const valdateExperienceInput = require("../validators/experience_validator");

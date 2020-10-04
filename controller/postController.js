@@ -1,7 +1,7 @@
 const express = require("express");
 const User = require('../models/User');
 const request = require('request');
-const config = require('../config/keys');
+const config = require('../config/production');
 const Post = require('../models/Post');
 const validatePostInput = require("../validators/postValidator");
 
