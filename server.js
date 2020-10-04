@@ -12,8 +12,6 @@ const posts = require("./routes/api/posts");
 
 app = express();
 
-
-
 // body praser midddleware
 app.use(cors());
 app.use(bodyParser.urlencoded({extended : false}));
@@ -29,6 +27,10 @@ mongoose
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
+app.use('/api/users',users);
+app.use('/api/profile',profile);
+app.use('/api/posts',posts);
+
 
 if(process.env.NODE_ENV=='production'){
 
@@ -39,10 +41,7 @@ if(process.env.NODE_ENV=='production'){
   })
 }
 
-// app routers
-app.use('/api/users',users);
-app.use('/api/profile',profile);
-app.use('/api/posts',posts);
+
 
 const port=process.env.PORT || 5000;
 
