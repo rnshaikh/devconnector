@@ -9,7 +9,7 @@ export const getCurrentUserProfile = ()=> async dispatch =>{
 
     try{
         ;
-        const res = await axios.get('http://127.0.0.1:5000/api/profile/profile/')
+        const res = await axios.get('/api/profile/profile/')
 
         dispatch({
             type: GET_PROFILE,
@@ -31,7 +31,7 @@ export const getProfileByUserId = (id)=> async dispatch =>{
 
     try{
         ;
-        const res = await axios.get(`http://127.0.0.1:5000/api/profile/user/${id}`)
+        const res = await axios.get(`/api/profile/user/${id}`)
 
         dispatch({
             type: GET_PROFILE,
@@ -55,7 +55,7 @@ export const getAllProfile = ()=> async dispatch =>{
 
     try{
         ;
-        const res = await axios.get('http://127.0.0.1:5000/api/profile/all/')
+        const res = await axios.get('/api/profile/all/')
 
         dispatch({
             type: GET_ALL_PROFILE,
@@ -78,7 +78,7 @@ export const getGithubRepo = (handle)=> async dispatch =>{
 
     try{
         ;
-        const res = await axios.get(`http://127.0.0.1:5000/api/profile/github/${handle}`)
+        const res = await axios.get(`/api/profile/github/${handle}`)
 
         dispatch({
             type: GET_REPO,
@@ -112,7 +112,7 @@ export const createProfile = (fromData, history, edit=false) => async dispatch =
             }
         }
 
-        const res = await axios.post('http://127.0.0.1:5000/api/profile/createupdateprofile/', fromData, config)
+        const res = await axios.post('/api/profile/createupdateprofile/', fromData, config)
         
         dispatch({
             type: GET_PROFILE,
@@ -154,7 +154,7 @@ export const addEducation = (fromData, history, edit=false) => async dispatch=>{
             }
         }
 
-        const res = await axios.post('http://127.0.0.1:5000/api/profile/addEducation/', fromData, config)
+        const res = await axios.post('/api/profile/addEducation/', fromData, config)
         
         dispatch({
             type: GET_PROFILE,
@@ -196,7 +196,7 @@ export const addExperience = (fromData, history, edit=false) => async dispatch=>
             }
         }
 
-        const res = await axios.post('http://127.0.0.1:5000/api/profile/addExperience/', fromData, config)
+        const res = await axios.post('/api/profile/addExperience/', fromData, config)
         
         dispatch({
             type: GET_PROFILE,
@@ -238,7 +238,7 @@ export const deleteExperience = (id) => async dispatch =>{
             }
         }
 
-        const res = await axios.delete(`http://127.0.0.1:5000/api/profile/experience/${id}`, config)
+        const res = await axios.delete(`/api/profile/experience/${id}`, config)
         
         dispatch({
             type: GET_PROFILE,
@@ -273,7 +273,7 @@ export const deleteEducation = (id) => async dispatch =>{
             }
         }
 
-        const res = await axios.delete(`http://127.0.0.1:5000/api/profile/education/${id}`, config)
+        const res = await axios.delete(`/api/profile/education/${id}`, config)
         
         dispatch({
             type: GET_PROFILE,
@@ -311,7 +311,7 @@ export const deleteAccount = (id) => async dispatch =>{
                 }
             }
     
-            const res = await axios.delete(`http://127.0.0.1:5000/api/profile/profile`, config)
+            const res = await axios.delete(`/api/profile/profile`, config)
             
             dispatch({
                 type: CLEAR_PROFILE,

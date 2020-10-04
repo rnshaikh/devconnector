@@ -13,10 +13,10 @@ export const createPost = (fromData, history, edit=false) => async dispatch =>{
             }
         }
 
-        const res = await axios.post('http://127.0.0.1:5000/api/posts/', fromData, config)
+        const res = await axios.post('/api/posts/', fromData, config)
         
         if (res.status === 200){
-            const res = await axios.get(`http://127.0.0.1:5000/api/posts/`)
+            const res = await axios.get(`/api/posts/`)
 
             dispatch({
                 type: GET_ALL_POST,
@@ -55,7 +55,7 @@ export const getPost = ()=> async dispatch =>{
 
     try{
 
-        const res = await axios.get(`http://127.0.0.1:5000/api/posts/`)
+        const res = await axios.get(`/api/posts/`)
 
         dispatch({
             type: GET_ALL_POST,
@@ -78,7 +78,7 @@ export const getPostById = (id)=> async dispatch =>{
 
     try{
 
-        const res = await axios.get(`http://127.0.0.1:5000/api/posts/${id}`)
+        const res = await axios.get(`/api/posts/${id}`)
 
         dispatch({
             type: GET_POST,
@@ -100,10 +100,10 @@ export const deletePost = (id)=> async dispatch =>{
 
     try{
 
-        const res = await axios.delete(`http://127.0.0.1:5000/api/posts/${id}`)
+        const res = await axios.delete(`/api/posts/${id}`)
 
         if (res.status === 200){
-            const res = await axios.get(`http://127.0.0.1:5000/api/posts/`)
+            const res = await axios.get(`/api/posts/`)
 
             dispatch({
                 type: GET_ALL_POST,
@@ -143,10 +143,10 @@ export const likePost = (id)=> async dispatch =>{
 
         const body = {"msg": "text"}
 
-        const res = await axios.put(`http://127.0.0.1:5000/api/posts/like/${id}`, body, config)
+        const res = await axios.put(`/api/posts/like/${id}`, body, config)
 
         if (res.status === 200){
-            const res = await axios.get(`http://127.0.0.1:5000/api/posts/`)
+            const res = await axios.get(`/api/posts/`)
 
             dispatch({
                 type: GET_ALL_POST,
@@ -186,10 +186,10 @@ export const unlikePost = (id)=> async dispatch =>{
 
         const body = {"text": "msg"}
 
-        const res = await axios.put(`http://127.0.0.1:5000/api/posts/unlike/${id}`, body, config)
+        const res = await axios.put(`/api/posts/unlike/${id}`, body, config)
 
         if (res.status === 200){
-            const res = await axios.get(`http://127.0.0.1:5000/api/posts/`)
+            const res = await axios.get(`/api/posts/`)
 
             dispatch({
                 type: GET_ALL_POST,
@@ -230,10 +230,10 @@ export const createComment = (fromData, id) => async dispatch =>{
             }
         }
 
-        const res = await axios.post(`http://127.0.0.1:5000/api/posts/comment/${id}`, fromData, config)
+        const res = await axios.post(`/api/posts/comment/${id}`, fromData, config)
         
         if (res.status === 200){
-            const res = await axios.get(`http://127.0.0.1:5000/api/posts/${id}`)
+            const res = await axios.get(`/api/posts/${id}`)
 
             dispatch({
                 type: GET_POST,
@@ -269,10 +269,10 @@ export const createComment = (fromData, id) => async dispatch =>{
 export const removeComment = (id, comment_id) => async dispatch =>{
     try{
 
-        const res = await axios.delete(`http://127.0.0.1:5000/api/posts/comment/${id}/${comment_id}`)
+        const res = await axios.delete(`/api/posts/comment/${id}/${comment_id}`)
 
         if (res.status === 200){
-            const res = await axios.get(`http://127.0.0.1:5000/api/posts/${id}`)
+            const res = await axios.get(`/api/posts/${id}`)
 
             dispatch({
                 type: GET_POST,
